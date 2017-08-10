@@ -1,0 +1,11 @@
+#!/Users/jmills/.rubies/ruby-2.4.1/bin/ruby
+# frozen_string_literal: true
+
+require 'rubygems'
+require 'bundler/setup'
+
+Bundler.require(:default)
+
+ENV['NODE_ENV'] = 'development'
+
+puts RUBY_VERSION

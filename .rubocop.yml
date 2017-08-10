@@ -1,0 +1,18 @@
+AllCops:
+  Exclude:
+    - 'bin/*'
+    - 'spec/spec_helper\.rb'
+
+RSpec/DescribeClass:
+  Exclude:
+    - 'spec/**/*'
+
+Documentation:
+  Enabled: false
+
+# skips style of child classes and modules.
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Metrics/BlockLength:
+  ExcludedMethods: ['describe', 'context', 'shared_examples']	
