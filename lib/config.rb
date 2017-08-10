@@ -10,6 +10,14 @@ class Config
     config
   end
 
+  def load_config_file(config_path)
+    @config_file_path = config_path
+    @yaml_data = nil
+    @valid = nil
+    config
+    valid?
+  end
+
   def valid?
     valid
   end
@@ -45,9 +53,9 @@ class Config
   def config
     return yaml_data if yaml_data
     @config_file_path = config_file unless config_file_path
-    @yaml_data ||= YAML.load_file config_file
+    @yaml_data ||= YAML.load_file config_file_path
     @valid = true
-    @yaml_data
+    yaml_data
   rescue Errno::ENOENT
     @valid = false
     {}
