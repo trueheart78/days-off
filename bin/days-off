@@ -8,4 +8,10 @@ Bundler.require(:default)
 
 ENV['NODE_ENV'] = 'development'
 
-puts RUBY_VERSION
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+
+require 'config'
+
+puts "Ruby v#{RUBY_VERSION}"
+puts "Config loaded: #{Config.instance.config_file_path}"
+puts "Outputting to: #{Config.instance.output_path}"

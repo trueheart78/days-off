@@ -6,6 +6,8 @@ require 'yaml'
 class Config
   include Singleton
 
+  attr_reader :config_file_path
+
   def initialize
     config
   end
@@ -48,7 +50,7 @@ class Config
 
   private
 
-  attr_reader :valid, :yaml_data, :config_file_path
+  attr_reader :valid, :yaml_data
 
   def config
     return yaml_data if yaml_data
@@ -63,6 +65,6 @@ class Config
 
   def config_file
     return ENV['CONFIG_PATH'] if ENV['CONFIG_PATH']
-    'config.yml'
+    File.expand_path 'config.yml'
   end
 end
